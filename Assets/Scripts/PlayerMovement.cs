@@ -5,7 +5,10 @@ public class PlayerMovement : MonoBehaviour {
 
     private Vector3 velocity = Vector3.zero;
     private Vector3 rotation = Vector3.zero;
-    private Vector3 cameraRotation = Vector3.zero;
+    private float camRotX = 0f;
+    private float currRot = 0f;
+    private float rotationLock = 75f;
+   
     private Rigidbody rb;
 
     [SerializeField]
@@ -26,9 +29,9 @@ public class PlayerMovement : MonoBehaviour {
         rotation = r;
     }// rotational vectors
 
-    public void RotateCamera(Vector3 cr)
+    public void RotateCamera(float cr)
     {
-        cameraRotation = cr;
+        camRotX = cr;
     }
 
     public void FixedUpdate()
@@ -42,7 +45,8 @@ public class PlayerMovement : MonoBehaviour {
         if(velocity != Vector3.zero)
         {
             rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
-        }
+        }//if 
+
     }
 
     private void RotatePlayer()
@@ -51,7 +55,10 @@ public class PlayerMovement : MonoBehaviour {
         
         if(c != null)
         {
-            c.transform.Rotate(-cameraRotation);
+            currRot -= camRotX; // set rotation to - cam rot so it wont be inverse
+            currRot = Mathf.Clamp(currRot, -rotationLock, rotationLock); // clamp the rotation
+
+            c.transform.localEulerAngles = new Vector3(currRot, 0f, 0f); // apply the rotation
         }
     }
 
