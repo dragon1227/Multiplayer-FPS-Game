@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+// Network Behaviour is derived from momobehaviour which is a derivative of behaviour
 public class PlayerManager : NetworkBehaviour {
 
     [SerializeField]
@@ -22,8 +23,11 @@ public class PlayerManager : NetworkBehaviour {
         protected set { dead = value; } // only derived classes can change this 
     }// isDead accessor methods end
 
-
-
+    /* Player setup and initialisation
+    We Collapse all this stuff into a region which allows us to visually tidy up our code.
+    Please click the + / - to the left to expand / collapse
+    */
+    #region Setup / Player Initialisation
     // Use this for initialization
     public void Setup() {
 
@@ -36,6 +40,7 @@ public class PlayerManager : NetworkBehaviour {
         initializePlayer();
 	}
 
+    // set the defaults for a player
     void initializePlayer()
     {
         dead = false;
@@ -52,7 +57,14 @@ public class PlayerManager : NetworkBehaviour {
             col.enabled = true;                         // enable the collider
         }
         
-    }
+    }// init player
+    #endregion
+
+    /*  The health related logic deals with damaging, player death & respawning the player
+    We Collapse all this stuff into a region which allows us to visually tidy up our code.
+    Please click the + / - to the left to expand / collapse
+    */
+    #region Health related logic
 
     [ClientRpc] // called by server, and then invoked on corresponding GameObjects on clients connected to the server.
     public void RpcDamagePlayer(int damage)
@@ -84,7 +96,19 @@ public class PlayerManager : NetworkBehaviour {
             col.enabled = false;                        // disable the collider 
         }
 
+        //start a co-routine to respawn the player
+        StartCoroutine(Respawn());
     }// if the player is dead then disable components & respawn
-	
+
+    IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(GameManager.GMInstance.rs.spawnDelay); // set the respawn time 
+
+        initializePlayer();
+        Transform spawnPoint = NetworkManager.singleton.GetStartPosition();
+        transform.position = spawnPoint.position;
+    }
+
+#endregion
 
 }// class

@@ -12,6 +12,14 @@ public class Setup : NetworkBehaviour {
 
     private Camera globalCamera;
 
+    [SerializeField]
+    string ignoreLayerNamed = "IgnoreMe";
+
+    [SerializeField]
+    GameObject playerUI;
+
+    private GameObject UIInstance;
+
     // Use this for initialization
     void Start () {
 
@@ -20,14 +28,14 @@ public class Setup : NetworkBehaviour {
             SetRemoteLayer();
         } else {
             SetCamera();
+
+            // create the player ui, crosshair, health, ammo etc
+            UIInstance = Instantiate(playerUI);
+            UIInstance.name = playerUI.name;
         }//if else if
         GetComponent<PlayerManager>().Setup();
 	}//start
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}// update
+
 
     public override void OnStartClient()
     {
@@ -38,7 +46,7 @@ public class Setup : NetworkBehaviour {
 
     void SetCamera()
     {
-        globalCamera = Camera.main; // otherwise the global camera is the main camera
+        globalCamera = Camera.main; // the global camera is the main camera
         if (globalCamera != null)
         {
             globalCamera.gameObject.SetActive(false);
@@ -60,6 +68,8 @@ public class Setup : NetworkBehaviour {
 
     void OnDisable()
     {
+
+        Destroy(UIInstance);
         if(globalCamera != null)
         {
             globalCamera.gameObject.SetActive(true);

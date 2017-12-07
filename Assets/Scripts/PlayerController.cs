@@ -5,7 +5,7 @@
 public class PlayerController : MonoBehaviour {
 
     [SerializeField]
-    private float speed = 50f;
+    private float speed = 5f;
     private float sensitivity = 1f;
 
     private PlayerMovement move;
@@ -24,14 +24,10 @@ public class PlayerController : MonoBehaviour {
         float rotY = Input.GetAxisRaw("Mouse X");
         float rotX = Input.GetAxisRaw("Mouse Y");
 
-
-
-
         // movement vectors 
         Vector3 moveHor = transform.right * moveX; 
         Vector3 moveVer = transform.forward * moveZ;
         Vector3 velocity = (moveHor + moveVer).normalized * speed;
-
 
         // rotation vectors - turns player around
         Vector3 rotation = new Vector3(0f, rotY, 0f) * sensitivity;

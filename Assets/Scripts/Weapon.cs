@@ -2,10 +2,15 @@
 
 [System.Serializable] // unity will know how to deal with this class
 public class Weapon  {
-
+    [SerializeField]
     private string name = "smg";
+    [SerializeField]
     private int damage = 10;
-    private int range = 75;
+    [SerializeField]
+    private int range = 200;
+
+    public float fireRate = 0f;
+    public GameObject gfx;
 
     public int getDamage()
     {

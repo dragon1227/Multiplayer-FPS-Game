@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
+[RequireComponent (typeof (Weapon))]
 public class Shoot : NetworkBehaviour {
 
-    public Weapon weapon;
-    private const string PLAYER_TAG= "Player";
+    private const string PLAYER_TAG = "Player";
+
+    private Weapon weapon;
+    private WeaponManger wm;
+
 
     [SerializeField]
     private Camera c;
@@ -18,20 +22,36 @@ public class Shoot : NetworkBehaviour {
         {
             this.enabled = false;
         }// if
+
+        wm = GetComponent<WeaponManger>();      // instantiate the weapon manager
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        weapon = wm.getCurrent();       //get the weapon we are using from the weapon manager
 
-        if (Input.GetButtonDown("Fire1"))
+        if(weapon.fireRate <= 0f)
         {
-            Fire();
-        }// if we press the fire button 
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Fire();
+            }// if we press the fire button 
+        } else {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                InvokeRepeating("Fire", 0f, 1/weapon.fireRate);
+            }else if (Input.GetButtonUp("Fire1"))
+            {
+                CancelInvoke("Fire");
+            }
+        }
+
 	}
 
     [Client]    //only called by the client never by the server
     void Fire()
     {
+        Debug.Log("shooting");
         RaycastHit hit; // stores information about objects that we hit
         // starting position, direction we are firing, cast out a raycast, the max distance, objects that we can hit
         if (Physics.Raycast(c.transform.position, c.transform.forward, out hit, weapon.getRange(), mask))
@@ -50,4 +70,6 @@ public class Shoot : NetworkBehaviour {
         PlayerManager p = GameManager.GetPlayer(pid);
         p.RpcDamagePlayer(damage);
     }// player hit command
+
+
 }
