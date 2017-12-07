@@ -2,10 +2,12 @@
 using UnityEngine.Networking;
 
 public class WeaponManger : NetworkBehaviour {
+
     [SerializeField]
     private Transform slot;
     [SerializeField]
     private Weapon primary;
+    [SerializeField]
     private Weapon current;
     private string weaponLayerName = "gun";
 

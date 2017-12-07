@@ -8,7 +8,7 @@ public class Setup : NetworkBehaviour {
     Behaviour[] disableComponents;
 
     [SerializeField]
-    string name = "RemotePlayer";
+    string remoteLayerName = "RemotePlayer";
 
     private Camera globalCamera;
 
@@ -33,7 +33,7 @@ public class Setup : NetworkBehaviour {
             UIInstance = Instantiate(playerUI);
             UIInstance.name = playerUI.name;
         }//if else if
-        GetComponent<PlayerManager>().Setup();
+        GetComponent<PlayerManager>().PlayerSetup();
 	}//start
 
 
@@ -63,7 +63,7 @@ public class Setup : NetworkBehaviour {
 
     void SetRemoteLayer()
     {
-        gameObject.layer = LayerMask.NameToLayer(name);
+        gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
     }
 
     void OnDisable()

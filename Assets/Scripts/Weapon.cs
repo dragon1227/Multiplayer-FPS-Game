@@ -2,43 +2,25 @@
 
 [System.Serializable] // unity will know how to deal with this class
 public class Weapon  {
-    [SerializeField]
-    private string name = "smg";
-    [SerializeField]
-    private int damage = 10;
-    [SerializeField]
-    private int range = 200;
+
+    public string name = "AR";
+
+    public int damage = 35;
+    public float range = 150f;
 
     public float fireRate = 0f;
+
+    public int maxBullets = 30;
+    [HideInInspector]
+    public int bullets;
+
+    public float reloadTime = 1f;
+
     public GameObject gfx;
 
-    public int getDamage()
+    public Weapon()
     {
-        return this.damage;
+        bullets = maxBullets;
     }
 
-    public void setDamage(int damage)
-    {
-        this.damage = damage;
-    }
-
-    public int getRange()
-    {
-        return this.range;
-    }
-
-    public void setRange(int range)
-    {
-        this.range = range;
-    }
-
-    public string getName()
-    {
-        return this.name;
-    }
-
-    public void setName(string name)
-    {
-        this.name = name;
-    }
 }

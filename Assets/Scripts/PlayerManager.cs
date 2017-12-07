@@ -7,11 +7,11 @@ using UnityEngine.Networking;
 public class PlayerManager : NetworkBehaviour {
 
     [SerializeField]
-    private int initHealth = 100;
-
-    [SerializeField]
     private Behaviour[] disableIfDead;
     private bool[] isDisabled;
+
+    [SerializeField]
+    private int initHealth = 100;
 
     [SyncVar]  // asyncronously updates the health across the clients from the server
     private int health;
@@ -29,8 +29,19 @@ public class PlayerManager : NetworkBehaviour {
     */
     #region Setup / Player Initialisation
     // Use this for initialization
-    public void Setup() {
+    public void PlayerSetup() {
+        CmdPlayerSetup();
+	}
 
+    [Command]
+    private void CmdPlayerSetup()
+    {
+        RpcPlayerSetup();
+    }
+
+    [ClientRpc]
+    private void RpcPlayerSetup()
+    {
         isDisabled = new bool[disableIfDead.Length];    // initialize the array
 
         for (int i = 0; i < isDisabled.Length; i++)
@@ -38,7 +49,7 @@ public class PlayerManager : NetworkBehaviour {
             isDisabled[i] = disableIfDead[i].enabled;   //set the boolean value of the components
         }
         initializePlayer();
-	}
+    }
 
     // set the defaults for a player
     void initializePlayer()
@@ -69,16 +80,18 @@ public class PlayerManager : NetworkBehaviour {
     [ClientRpc] // called by server, and then invoked on corresponding GameObjects on clients connected to the server.
     public void RpcDamagePlayer(int damage)
     {
-        if(dead) { return; }                            // the player cannot be damaged if they're already dead
+        if (dead) { return;}                            // the player cannot be damaged if they're already dead
 
-        health -= damage;                           
+        health -= damage;
+
+        Debug.Log(transform.name + " has " + health);
 
         if (health <= 0)
         {
             KillPlayer();                               // if the player has no health call the kill method
         }
         
-        Debug.Log(transform.name + " has " + health);  
+        
     }//damage the player
 
     private void KillPlayer()
