@@ -1,0 +1,72 @@
+Initialize engine version: 5.6.3p1 (9c92e827232b)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1050 (ID=0x1c8d)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   23.21.13.8831
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.020 seconds
+Platform assembly: C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\System.dll (this message is harmless)
+desktop: 3840x2160 60Hz; virtual: 3840x2160 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.438632 ms
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 4498 -> priority: 1 
+  Thread -> id: 4464 -> priority: 1 
+  Thread -> id: 3798 -> priority: 1 
+  Thread -> id: 5f0 -> priority: 1 
+Trying to send command for object without authority.
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player 2 has 65
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player 2 has 30
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Player 2 has -5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at PlayerManager+<Respawn>c__Iterator0.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+UnityEngine.MonoBehaviour:StartCoroutine_Auto_Internal(IEnumerator)
+UnityEngine.MonoBehaviour:StartCoroutine(IEnumerator)
+PlayerManager:KillPlayer()
+PlayerManager:RpcDamagePlayer(Int32)
+PlayerManager:InvokeRpcRpcDamagePlayer(NetworkBehaviour, NetworkReader)
+UnityEngine.Networking.NetworkIdentity:HandleRPC(Int32, NetworkReader)
+UnityEngine.Networking.ClientScene:OnRPCMessage(NetworkMessage)
+UnityEngine.Networking.NetworkConnection:HandleReader(NetworkReader, Int32, Int32)
+UnityEngine.Networking.NetworkConnection:HandleBytes(Byte[], Int32, Int32)
+UnityEngine.Networking.NetworkConnection:TransportReceive(Byte[], Int32, Int32)
+UnityEngine.Networking.NetworkClient:Update()
+UnityEngine.Networking.NetworkClient:UpdateClients()
+UnityEngine.Networking.NetworkIdentity:UNetStaticUpdate()
+ 
+(Filename:  Line: -1)
+
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:7777} time {143605}, last rec time {141603} rtt {2} timeout {2000}
+ClientDisconnected due to error: Timeout
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+

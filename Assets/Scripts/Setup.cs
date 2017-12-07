@@ -2,7 +2,7 @@
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(PlayerManager))]
-public class Setup : NetworkBehaviour {
+public class SetupPlayer : NetworkBehaviour {
 
     [SerializeField]
     Behaviour[] disableComponents;
@@ -20,7 +20,7 @@ public class Setup : NetworkBehaviour {
 
     private GameObject UIInstance;
 
-    // Use this for initialization
+    
     void Start () {
 
         if (!isLocalPlayer) { // if we are not controlled by the player 
@@ -32,8 +32,9 @@ public class Setup : NetworkBehaviour {
             // create the player ui, crosshair, health, ammo etc
             UIInstance = Instantiate(playerUI);
             UIInstance.name = playerUI.name;
+            GetComponent<PlayerManager>().PlayerSetup();
         }//if else if
-        GetComponent<PlayerManager>().PlayerSetup();
+        
 	}//start
 
 

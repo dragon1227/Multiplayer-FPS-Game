@@ -5,10 +5,10 @@ public class Weapon  {
 
     public string name = "AR";
 
-    public int damage = 35;
+    public int damage = 22;
     public float range = 150f;
 
-    public float fireRate = 0f;
+    public float fireRate = 7f;
 
     public int maxBullets = 30;
     [HideInInspector]

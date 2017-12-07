@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -16,11 +15,13 @@ public class PlayerManager : NetworkBehaviour {
     [SyncVar]  // asyncronously updates the health across the clients from the server
     private int health;
 
+    private bool first = true;
+
     [SyncVar] // asyncronously updates the health across the clients from the server
     private bool dead = false;
     public bool isDead {                // accsessor methods
         get { return dead; }            // anyone can get this
-        protected set { dead = value; } // only derived classes can change this 
+        protected set { dead = value; } // only derived classes can access this 
     }// isDead accessor methods end
 
     /* Player setup and initialisation
@@ -30,24 +31,30 @@ public class PlayerManager : NetworkBehaviour {
     #region Setup / Player Initialisation
     // Use this for initialization
     public void PlayerSetup() {
-        CmdPlayerSetup();
+
+        CmdNewPlayerSetupOnServer();
 	}
 
     [Command]
-    private void CmdPlayerSetup()
+    private void CmdNewPlayerSetupOnServer()
     {
-        RpcPlayerSetup();
+        RpcSetupPlayerOnClients();
     }
 
     [ClientRpc]
-    private void RpcPlayerSetup()
+    private void RpcSetupPlayerOnClients()
     {
-        isDisabled = new bool[disableIfDead.Length];    // initialize the array
 
-        for (int i = 0; i < isDisabled.Length; i++)
+        if (first)
         {
-            isDisabled[i] = disableIfDead[i].enabled;   //set the boolean value of the components
-        }
+            isDisabled = new bool[disableIfDead.Length];    // initialize the array
+            for (int i = 0; i < isDisabled.Length; i++)
+            {
+                isDisabled[i] = disableIfDead[i].enabled;   //set the boolean value of the components
+            }
+            first = false;
+         }
+        
         initializePlayer();
     }
 
@@ -71,6 +78,16 @@ public class PlayerManager : NetworkBehaviour {
     }// init player
     #endregion
 
+
+    //private void Update()
+    //{
+    //    if (!isLocalPlayer) return;
+
+    //    if (Input.GetKeyDown(KeyCode.K))
+    //    {
+    //        RpcDamagePlayer(10000);
+    //    }
+    //}
     /*  The health related logic deals with damaging, player death & respawning the player
     We Collapse all this stuff into a region which allows us to visually tidy up our code.
     Please click the + / - to the left to expand / collapse
@@ -78,7 +95,7 @@ public class PlayerManager : NetworkBehaviour {
     #region Health related logic
 
     [ClientRpc] // called by server, and then invoked on corresponding GameObjects on clients connected to the server.
-    public void RpcDamagePlayer(int damage)
+    public void RpcDamagePlayer(int damage)// "rpc" prefix naming standard for any rpc methods
     {
         if (dead) { return;}                            // the player cannot be damaged if they're already dead
 
@@ -113,13 +130,13 @@ public class PlayerManager : NetworkBehaviour {
         StartCoroutine(Respawn());
     }// if the player is dead then disable components & respawn
 
-    IEnumerator Respawn()
+    private IEnumerator Respawn()
     {
-        yield return new WaitForSeconds(GameManager.GMInstance.rs.spawnDelay); // set the respawn time 
+        yield return new WaitForSeconds(3f); // set the respawn time 
 
-        initializePlayer();
-        Transform spawnPoint = NetworkManager.singleton.GetStartPosition();
-        transform.position = spawnPoint.position;
+        initializePlayer();     // set the player health etc to the defaults
+        Transform spawnPoint = NetworkManager.singleton.GetStartPosition();     // choose a random spawnpoint
+        transform.position = spawnPoint.position;       // set the spawn point to one of the spawn points s
     }
 
 #endregion
