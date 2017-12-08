@@ -6,7 +6,7 @@ public class PlayerUI : MonoBehaviour
 {
 
     [SerializeField]
-    RectTransform healthBarFill;
+    RectTransform healthBar;
 
     [SerializeField]
     Text ammoText;
@@ -30,17 +30,15 @@ public class PlayerUI : MonoBehaviour
 
     void Start()
     {
-        PauseMenu.active = false;                     // disable the pause menu at the begining
+        PauseMenu.isActive = false;                     // disable the pause menu at the begining
     }
 
     void Update()
     {
-        //SetHealthAmount(plyrMgr.GetHealthPct());             //set the health 
-        //SetAmmoAmount(weapMgr.GetCurrentWeapon().bullets);   // set the ammo
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            TogglePauseMenu();
+            PauseActive();
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -53,15 +51,15 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    public void TogglePauseMenu()
+    public void PauseActive()
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
-        PauseMenu.active = pauseMenu.activeSelf;
+        PauseMenu.isActive = pauseMenu.activeSelf;
     }
 
     void SetHealthAmount(float _amount)
     {
-        healthBarFill.localScale = new Vector3(1f, _amount, 1f);
+        healthBar.localScale = new Vector3(1f, _amount, 1f);
     }
 
     void SetAmmoAmount(int _amount)

@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 
 public class PauseMenu : MonoBehaviour {
-    public static bool active = false;
+    public static bool isActive = false;
 
     private NetworkManager netMgr;
 
