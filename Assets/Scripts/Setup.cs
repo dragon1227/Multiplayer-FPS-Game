@@ -12,8 +12,8 @@ public class SetupPlayer : NetworkBehaviour {
 
     private Camera globalCamera;
 
-    [SerializeField]
-    string ignoreLayerNamed = "IgnoreMe";
+    //[SerializeField]
+    //string ignoreLayerNamed = "IgnoreMe";
 
     [SerializeField]
     GameObject playerUI;

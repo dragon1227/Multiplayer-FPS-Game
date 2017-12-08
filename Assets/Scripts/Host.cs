@@ -16,11 +16,13 @@ public class Host : MonoBehaviour
     {
         // create a match making system
         nm = NetworkManager.singleton;
-        if (nm.matchMaker == null)
+        if (nm.matchMaker == null) // check to see if we haven't already created a match maker
         {
-            nm.StartMatchMaker();
+            nm.StartMatchMaker();   // create one
         }
-    }
+    } // start
+
+
     //  Use this function to create a new match. The client which calls this function becomes the host of the match.
     //  When creating a match you should call this function and wait for the callback to be invoked before proceeding.
     //  The callback will indicate if the call was successful as well as extended information if it failed. 
@@ -36,15 +38,11 @@ public class Host : MonoBehaviour
             nm.matchMaker.CreateMatch(roomName, playerCap, true, "", "", "", 0, 0, nm.OnMatchCreate);
 
         }
-    }
+    }// create room
 
 
     public void SetRoomName(string roomName)
     {
         this.roomName = roomName;
-    }
-    public string GetRoomName()
-    {
-        return this.roomName;
     }
 }
