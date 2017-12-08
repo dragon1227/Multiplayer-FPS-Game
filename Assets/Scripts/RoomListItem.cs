@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 class RoomListItem : MonoBehaviour {
 
-    public delegate void JoinRoomDelegate(MatchInfoSnapshot match);
+    public delegate void JoinRoomDelegate(MatchInfoSnapshot m); // contains references to functions that can subscribe to this callback 
     private JoinRoomDelegate joinRoomCallback;
 
     private MatchInfoSnapshot match;
@@ -14,11 +14,11 @@ class RoomListItem : MonoBehaviour {
     [SerializeField]
     private Text nameText;
 
-    public void Setup(MatchInfoSnapshot m, JoinRoomDelegate joinRoomDelegate) //put the join room function in as a paaram
+    public void Setup(MatchInfoSnapshot m, JoinRoomDelegate jrc) //put the join room function in as a paaram
     {
         match = m;
 
-        joinRoomCallback = joinRoomDelegate; // delecate the task else where 
+        joinRoomCallback = jrc; // delecate the task else where 
 
         nameText.text = match.name + " (" + match.currentSize + "/" + match.maxSize + ")"; // show the room information
 

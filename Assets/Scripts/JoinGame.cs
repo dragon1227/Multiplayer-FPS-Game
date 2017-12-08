@@ -9,13 +9,11 @@ using UnityEngine.UI;
 // a player will be able to view and join games, get an upto date list
 // using match making & the network manager. . . 
 
-// TODO: there is currently an issue with the ui which is disabling this from functioning as expected
 
 public class JoinGame : MonoBehaviour
 {
 
-    private NetworkManager netManager;
-    private List<GameObject> roomList = new List<GameObject>();
+    List<GameObject> ls = new List<GameObject>();
 
     [SerializeField]
     private Text status;
@@ -26,67 +24,81 @@ public class JoinGame : MonoBehaviour
     [SerializeField]
     private Transform listParent;
 
-    // Use this for initialization
+    private NetworkManager netMgr;
+
     void Start()
     {
-
-        netManager = NetworkManager.singleton;
-        if (netManager.matchMaker == null)
+        netMgr = NetworkManager.singleton;
+        if (netMgr.matchMaker == null)
         {
-            netManager.StartMatchMaker();
+            netMgr.StartMatchMaker();
         }
-        Refresh();
-    }
 
-    public void Refresh()
+        RefreshList();
+    }
+    //This contains all the match list stuff
+    #region Match list stuff
+    public void RefreshList()
     {
-        ClearList();
-        netManager.matchMaker.ListMatches(0, 10, "", true, 0, 0, netManager.OnMatchList);
-        status.text = "Loading . . .";
+        ClearList();// clear the list
+
+        if (netMgr.matchMaker == null)
+        {
+            netMgr.StartMatchMaker(); // create a match maker if one doesn't exist already
+        }
+
+        netMgr.matchMaker.ListMatches(0, 10, "", true, 0, 0, OnListMatches); // list the matches available
+        status.text = "Loading...";
     }
 
-    public void onMatchList(bool success, string extendedInfo, List<MatchInfoSnapshot> matchList)
+    public void OnListMatches(bool success, string extendedInfo, List<MatchInfoSnapshot> matchList)
     {
         status.text = "";
 
-        if (!success || matchList == null)
+        if (!success || matchList == null) //this will show if theres a network issue on the client side...
         {
-            status.text = "Couldn't find any games :(";
+            status.text = "Couldn't get list...";
             return;
         }
 
-        foreach (MatchInfoSnapshot match in matchList)
+        foreach (MatchInfoSnapshot m in matchList)
         {
-            GameObject listItemGO = Instantiate(listItemPrefab);
-            listItemGO.transform.SetParent(listParent);
+            GameObject listItemObj = Instantiate(listItemPrefab); // create an instance of the prefab object
+            listItemObj.transform.SetParent(listParent);//place the list item obj in the parent object (the list)
 
-            RoomListItem rli = GetComponent<RoomListItem>();
+            RoomListItem rli = listItemObj.GetComponent<RoomListItem>();
             if (rli != null)
             {
-                rli.Setup(match, JoinRoom);
-            }
+                rli.Setup(m, JoinRoom);
+            }//if theres a room list item 
 
-            roomList.Add(listItemGO);
-        }
-        if (roomList == null)
+            ls.Add(listItemObj);
+        }//for each match in the list of matches
+
+        if (ls.Count == 0)
         {
-            status.text = "No games available right now";
+            status.text = "No rooms available";
         }
     }
 
     void ClearList()
     {
-        for (int i = 0; i < roomList.Count; i++)
+        for (int i = 0; i < ls.Count; i++)
         {
-            Destroy(roomList[i]);
+            Destroy(ls[i]); // destroy each item in the list 1 by 1
         }
-        roomList.Clear();
+
+        ls.Clear(); // and clear it
     }
+    #endregion
 
     public void JoinRoom(MatchInfoSnapshot match)
     {
-        netManager.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, netManager.OnMatchJoined);
-
+        netMgr.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, netMgr.OnMatchJoined);
+        ClearList();
+        status.text = "Joining: " + match.name;
     }
+
+   
 
 }

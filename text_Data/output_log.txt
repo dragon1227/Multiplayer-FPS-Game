@@ -17,212 +17,24 @@ Platform assembly: C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Da
 Loading C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.021 seconds
+- Completed reload, in  0.022 seconds
 Platform assembly: C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\danny\Development\Unity\Multiplayer-FPS-Game\text_Data\Managed\System.dll (this message is harmless)
 desktop: 3840x2160 60Hz; virtual: 3840x2160 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1514)
-
-The referenced script on this Behaviour (Game Object 'Player') is missing!
- 
-(Filename:  Line: 1743)
-
-UnloadTime: 3.813742 ms
+UnloadTime: 2.281389 ms
 MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 4 worker threads for Enlighten.
-  Thread -> id: 4384 -> priority: 1 
-  Thread -> id: b88 -> priority: 1 
-  Thread -> id: 4834 -> priority: 1 
-  Thread -> id: 3f80 -> priority: 1 
-MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-MatchMakingClient Join :https://mm.unet.unity3d.com/json/reply/JoinMatchRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 26.646240 ms
-
-Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 426.
-Total: 1.126108 ms (FindLiveObjects: 0.033549 ms CreateObjectMapping: 0.037196 ms MarkObjects: 0.980603 ms  DeleteObjects: 0.073663 ms)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1514)
-
-The referenced script on this Behaviour (Game Object 'Player') is missing!
- 
-(Filename:  Line: 1743)
-
-The referenced script on this Behaviour (Game Object 'Player') is missing!
- 
-(Filename:  Line: 1743)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1514)
-
-The referenced script on this Behaviour (Game Object 'Player') is missing!
- 
-(Filename:  Line: 1743)
-
-The referenced script on this Behaviour (Game Object 'Player') is missing!
- 
-(Filename:  Line: 1743)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-MatchMakingClient DropConnection :https://mm.unet.unity3d.com/json/reply/DropConnectionRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-MatchMakingClient DropConnection :https://mm.unet.unity3d.com/json/reply/DropConnectionRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.018894 ms
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 490.
-Total: 0.785504 ms (FindLiveObjects: 0.041937 ms CreateObjectMapping: 0.035737 ms MarkObjects: 0.635988 ms  DeleteObjects: 0.071111 ms)
-
-MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
+  Thread -> id: 2fdc -> priority: 1 
+  Thread -> id: 233c -> priority: 1 
+  Thread -> id: 1ecc -> priority: 1 
+  Thread -> id: 1528 -> priority: 1 
+Creating: dank Player cap: 8
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
@@ -230,157 +42,32 @@ MatchMakingClient Create :https://mm.unet.unity3d.com/json/reply/CreateMatchRequ
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.947350 ms
-The referenced script on this Behaviour is missing!
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 12.375883 ms
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 462.
+Total: 0.586757 ms (FindLiveObjects: 0.033549 ms CreateObjectMapping: 0.031726 ms MarkObjects: 0.474438 ms  DeleteObjects: 0.046678 ms)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at Setup.DisableComponents () [0x00000] in <filename unknown>:0 
+  at Setup.Start () [0x00000] in <filename unknown>:0 
  
-(Filename:  Line: 1514)
+(Filename:  Line: -1)
 
-The referenced script on this Behaviour (Game Object 'Player') is missing!
- 
-(Filename:  Line: 1743)
-
-The referenced script on this Behaviour (Game Object 'Player') is missing!
- 
-(Filename:  Line: 1743)
-
-
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 493.
-Total: 1.704842 ms (FindLiveObjects: 0.060535 ms CreateObjectMapping: 0.095544 ms MarkObjects: 1.366062 ms  DeleteObjects: 0.181242 ms)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1514)
-
-The referenced script on this Behaviour (Game Object 'Player') is missing!
- 
-(Filename:  Line: 1743)
-
-The referenced script on this Behaviour (Game Object 'Player') is missing!
- 
-(Filename:  Line: 1743)
-
-Player shot
+Player 1 has 65
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Plane
+Player 1 has 30
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Player shot
+Player 1 has -5
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Cube (1)
+Log: connection {1} has been disconnected by timeout; address {::ffff:52.29.208.212:9999} time {87736}, last rec time {85488} rtt {111} timeout {2000}
+ServerDisconnected due to error: Timeout
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Cube (1)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Cube (1)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Cube (1)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Plane
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Player shot
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Cube (1)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-MatchMakingClient DropConnection :https://mm.unet.unity3d.com/json/reply/DropConnectionRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.171327 ms
-MatchMakingClient ListMatches :https://mm.unet.unity3d.com/json/reply/ListMatchRequest
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-
-Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 502.
-Total: 1.545845 ms (FindLiveObjects: 0.153162 ms CreateObjectMapping: 0.063817 ms MarkObjects: 1.228216 ms  DeleteObjects: 0.099555 ms)
-
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 1.262860 ms
-
-Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 425.
-Total: 0.991908 ms (FindLiveObjects: 0.047042 ms CreateObjectMapping: 0.044490 ms MarkObjects: 0.810301 ms  DeleteObjects: 0.088615 ms)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1514)
-
-The referenced script on this Behaviour (Game Object 'Player') is missing!
- 
-(Filename:  Line: 1743)
-
-The referenced script on this Behaviour (Game Object 'Player') is missing!
- 
-(Filename:  Line: 1743)
-
-The referenced script on this Behaviour is missing!
- 
-(Filename:  Line: 1514)
-
-The referenced script on this Behaviour (Game Object 'Player') is missing!
- 
-(Filename:  Line: 1743)
-
-The referenced script on this Behaviour (Game Object 'Player') is missing!
- 
-(Filename:  Line: 1743)
 
