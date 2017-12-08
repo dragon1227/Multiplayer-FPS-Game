@@ -2,6 +2,13 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
+// the follwing manages each player on the server
+// using synced variables the server and clients will know
+// the current status of each player in the game
+
+// this will deal with setting up the player on the server and clients
+// will also deal with all health related logic
+
 // Network Behaviour is derived from momobehaviour which is a derivative of behaviour
 public class PlayerManager : NetworkBehaviour {
 
@@ -78,16 +85,6 @@ public class PlayerManager : NetworkBehaviour {
     }// init player
     #endregion
 
-
-    //private void Update()
-    //{
-    //    if (!isLocalPlayer) return;
-
-    //    if (Input.GetKeyDown(KeyCode.K))
-    //    {
-    //        RpcDamagePlayer(10000);
-    //    }
-    //}
     /*  The health related logic deals with damaging, player death & respawning the player
     We Collapse all this stuff into a region which allows us to visually tidy up our code.
     Please click the + / - to the left to expand / collapse

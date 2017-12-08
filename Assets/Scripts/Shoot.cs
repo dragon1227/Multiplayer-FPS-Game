@@ -1,33 +1,37 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
+// the following defines functionality related to shooting
+// it will make rpc calls to the server to update the information
+
+
 [RequireComponent (typeof (WeaponManger))]
 public class Shoot : NetworkBehaviour {
 
     private const string PLAYER_TAG = "Player";
 
     private Weapon weapon;
-    private WeaponManger wm;
+    private WeaponManger weapMgr;
 
     [SerializeField]
-    private Camera c;
+    private Camera camera;
 
     [SerializeField]
     private LayerMask mask;
 
     // Use this for initialization
     void Start () {
-		if(c == null)
+		if(camera == null)
         {
             this.enabled = false;
         }// if
 
-        wm = GetComponent<WeaponManger>();      // instantiate the weapon manager
+        weapMgr = GetComponent<WeaponManger>();      // instantiate the weapon manager
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        weapon = wm.getCurrent();       //get the weapon we are using from the weapon manager
+        weapon = weapMgr.getCurrent();       //get the weapon we are using from the weapon manager
 
         if (weapon.fireRate <= 0f)
         {
@@ -56,7 +60,7 @@ public class Shoot : NetworkBehaviour {
         Debug.Log("Player shot");
         RaycastHit hit; // stores information about objects that we hit
         // starting position, direction we are firing, cast out a raycast, the max distance, objects that we can hit
-        if (Physics.Raycast(c.transform.position, c.transform.forward, out hit, weapon.range, mask))
+        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, weapon.range, mask))
         {
             Debug.Log(hit.collider.name);// return the name of what we hit
             if(hit.collider.tag == PLAYER_TAG)
@@ -69,7 +73,6 @@ public class Shoot : NetworkBehaviour {
     [Command] // called by the server
     void CmdPlayerHit(string pid, int damage)
     {
-        Debug.Log(pid + " was shot");
         PlayerManager p = GameManager.GetPlayer(pid); // get the player that was shot at
         p.RpcDamagePlayer(damage);
     }// player hit command

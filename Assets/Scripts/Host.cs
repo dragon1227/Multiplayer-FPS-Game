@@ -7,18 +7,18 @@ using UnityEngine.Networking;
 
 public class Host : MonoBehaviour
 {
-
+    [SerializeField]
     private uint playerCap = 8;
     private string roomName;
-    private NetworkManager nm;
+    private NetworkManager netMgr;
 
     private void Start()
     {
         // create a match making system
-        nm = NetworkManager.singleton;
-        if (nm.matchMaker == null) // check to see if we haven't already created a match maker
+        netMgr = NetworkManager.singleton;
+        if (netMgr.matchMaker == null) // check to see if we haven't already created a match maker
         {
-            nm.StartMatchMaker();   // create one
+            netMgr.StartMatchMaker();   // create one
         }
     } // start
 
@@ -35,7 +35,7 @@ public class Host : MonoBehaviour
         {
             Debug.Log("Creating: " + roomName + " Player cap: " + playerCap);
             // matchName, matchSize, matchAdvertise, matchPassword, publicClientAddress, privateClientAddress, eloScoreForMatch, requestDomain, callback
-            nm.matchMaker.CreateMatch(roomName, playerCap, true, "", "", "", 0, 0, nm.OnMatchCreate);
+            netMgr.matchMaker.CreateMatch(roomName, playerCap, true, "", "", "", 0, 0, netMgr.OnMatchCreate);
 
         }
     }// create room

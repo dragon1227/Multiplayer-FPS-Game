@@ -1,20 +1,22 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+// deals with instancing of the game manager (a factory or singleton)
+// also deals with loading players into / out of the game
+
 public class GameManager : MonoBehaviour {
 
     public static GameManager GMInstance;
 
-    public RoundSettings rs;
+    //public RoundSettings rs; //Might use this later
 
-    void getInstance() // Get an instance of this!
+    GameManager getInstance() // Get an instance of this! 
     {
-        if(GMInstance == null)
+        if (GMInstance == null)
         {
-            GMInstance = this;
-        } else {
-            return; // if there already is an instance exit we can only have one (singleton)
+            GMInstance = new GameManager();
         }
+        return GMInstance; // if there already is an instance exit we can only have one (singleton)
     }
 
 

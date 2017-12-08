@@ -5,10 +5,16 @@ using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 using UnityEngine.UI;
 
+// This is a service script which handles the join game menu, and network functionality
+// a player will be able to view and join games, get an upto date list
+// using match making & the network manager. . . 
+
+// TODO: there is currently an issue with the ui which is disabling this from functioning as expected
+
 public class JoinGame : MonoBehaviour
 {
 
-    private NetworkManager nm;
+    private NetworkManager netManager;
     private List<GameObject> roomList = new List<GameObject>();
 
     [SerializeField]
@@ -24,10 +30,10 @@ public class JoinGame : MonoBehaviour
     void Start()
     {
 
-        nm = NetworkManager.singleton;
-        if (nm.matchMaker == null)
+        netManager = NetworkManager.singleton;
+        if (netManager.matchMaker == null)
         {
-            nm.StartMatchMaker();
+            netManager.StartMatchMaker();
         }
         Refresh();
     }
@@ -35,7 +41,7 @@ public class JoinGame : MonoBehaviour
     public void Refresh()
     {
         ClearList();
-        nm.matchMaker.ListMatches(0, 10, "", true, 0, 0, nm.OnMatchList);
+        netManager.matchMaker.ListMatches(0, 10, "", true, 0, 0, netManager.OnMatchList);
         status.text = "Loading . . .";
     }
 
@@ -48,21 +54,21 @@ public class JoinGame : MonoBehaviour
             status.text = "Couldn't find any games :(";
             return;
         }
-        
-        foreach(MatchInfoSnapshot match in matchList)
+
+        foreach (MatchInfoSnapshot match in matchList)
         {
             GameObject listItemGO = Instantiate(listItemPrefab);
             listItemGO.transform.SetParent(listParent);
 
             RoomListItem rli = GetComponent<RoomListItem>();
-            if(rli != null)
+            if (rli != null)
             {
                 rli.Setup(match, JoinRoom);
             }
 
             roomList.Add(listItemGO);
         }
-        if(roomList == null)
+        if (roomList == null)
         {
             status.text = "No games available right now";
         }
@@ -70,7 +76,7 @@ public class JoinGame : MonoBehaviour
 
     void ClearList()
     {
-        for(int i = 0; i < roomList.Count ; i++)
+        for (int i = 0; i < roomList.Count; i++)
         {
             Destroy(roomList[i]);
         }
@@ -79,7 +85,7 @@ public class JoinGame : MonoBehaviour
 
     public void JoinRoom(MatchInfoSnapshot match)
     {
-        nm.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, nm.OnMatchJoined);
+        netManager.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, netManager.OnMatchJoined);
 
     }
 

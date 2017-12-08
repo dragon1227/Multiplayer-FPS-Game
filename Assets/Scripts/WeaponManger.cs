@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
+// the following will manage what is in the weapon slot 
+// it can create instances of objects using prefabs
+
 public class WeaponManger : NetworkBehaviour {
 
     [SerializeField]

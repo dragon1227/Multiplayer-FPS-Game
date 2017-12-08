@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+// this is the default definition of a weapon
+
 [System.Serializable] // unity will know how to deal with this class
 public class Weapon  {
 

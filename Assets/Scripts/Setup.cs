@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
+// the folloing script deals with setting up a player
+// it will get instances of components in order for the player to be able to play 
+
 [RequireComponent(typeof(PlayerManager))]
-public class SetupPlayer : NetworkBehaviour {
+public class Setup : NetworkBehaviour {
 
     [SerializeField]
     Behaviour[] disableComponents;
@@ -11,9 +14,6 @@ public class SetupPlayer : NetworkBehaviour {
     string remoteLayerName = "RemotePlayer";
 
     private Camera globalCamera;
-
-    //[SerializeField]
-    //string ignoreLayerNamed = "IgnoreMe";
 
     [SerializeField]
     GameObject playerUI;
