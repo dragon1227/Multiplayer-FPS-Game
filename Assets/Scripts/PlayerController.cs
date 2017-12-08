@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour {
 
     private void Update()
     {
+        if (PauseMenu.isActive) { return; } // diable input if the pause menu is up
         // Calculate player movement & rotation as a vector 3
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");

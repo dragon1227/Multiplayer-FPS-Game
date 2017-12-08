@@ -17,7 +17,7 @@ public class PauseMenu : MonoBehaviour {
     public void Leave()
     {
         MatchInfo matchInfo = netMgr.matchInfo;
-        netMgr.matchMaker.DropConnection(matchInfo.networkId, matchInfo.nodeId, 0, netMgr.OnDropConnection);
+        netMgr.matchMaker.DropConnection(matchInfo.networkId, matchInfo.nodeId, 0, netMgr.OnDropConnection); // this will safely bring us back to the lobby 
         netMgr.StopHost();// cleans the scene correctly (does not stop the actual host) will allow for host migration also
     }
 }

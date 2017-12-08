@@ -5,17 +5,17 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
 
-    [SerializeField]
-    RectTransform healthBar;
+    //[SerializeField]
+    //RectTransform healthBar;
 
-    [SerializeField]
-    Text ammoText;
+    //[SerializeField]
+    //Text ammoText;
+
+    //[SerializeField]
+    //GameObject scoreboard;
 
     [SerializeField]
     GameObject pauseMenu;
-
-    [SerializeField]
-    GameObject scoreboard;
 
     private PlayerManager plyrMgr;
     private PlayerController ctrl;
@@ -41,14 +41,14 @@ public class PlayerUI : MonoBehaviour
             PauseActive();
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            scoreboard.SetActive(true);
-        }
-        else if (Input.GetKeyUp(KeyCode.Tab))
-        {
-            scoreboard.SetActive(false);
-        }
+        //if (Input.GetKeyDown(KeyCode.Tab))
+        //{
+        //    scoreboard.SetActive(true);
+        //}
+        //else if (Input.GetKeyUp(KeyCode.Tab))
+        //{
+        //    scoreboard.SetActive(false);
+        //}
     }
 
     public void PauseActive()
@@ -57,14 +57,14 @@ public class PlayerUI : MonoBehaviour
         PauseMenu.isActive = pauseMenu.activeSelf;
     }
 
-    void SetHealthAmount(float _amount)
-    {
-        healthBar.localScale = new Vector3(1f, _amount, 1f);
-    }
+    //void SetHealthAmount(float _amount)
+    //{
+    //    healthBar.localScale = new Vector3(1f, _amount, 1f);
+    //}
 
-    void SetAmmoAmount(int _amount)
-    {
-        ammoText.text = _amount.ToString();
-    }
+    //void SetAmmoAmount(int _amount)
+    //{
+    //    ammoText.text = _amount.ToString();
+    //}
 
 }
