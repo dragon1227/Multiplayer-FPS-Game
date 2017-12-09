@@ -19,8 +19,8 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
     public InputField Register_UsernameField;
     public InputField Register_PasswordField;
     public InputField Register_ConfirmPasswordField;
-    public InputField LoggedIn_DataInputField;
-    public InputField LoggedIn_DataOutputField;
+    //public InputField LoggedIn_DataInputField;
+    //public InputField LoggedIn_DataOutputField;
 
     //These are the UI Texts which display errors
     public Text Login_ErrorText;
@@ -48,8 +48,8 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
         Register_UsernameField.text = "";
         Register_PasswordField.text = "";
         Register_ConfirmPasswordField.text = "";
-        LoggedIn_DataInputField.text = "";
-        LoggedIn_DataOutputField.text = "";
+        //LoggedIn_DataInputField.text = "";
+        //LoggedIn_DataOutputField.text = "";
         Login_ErrorText.text = "";
         Register_ErrorText.text = "";
         LoggedIn_DisplayUsernameText.text = "";
@@ -151,7 +151,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
             //The player's data was retrieved. Goes back to loggedIn UI and displays the retrieved data in the InputField
             loadingParent.gameObject.SetActive(false);
             loggedInParent.gameObject.SetActive(true);
-            LoggedIn_DataOutputField.text = response;
+            //LoggedIn_DataOutputField.text = response;
         }
     }
     IEnumerator SetData (string data)
@@ -270,7 +270,7 @@ public class DCF_DemoScene_ManagerScript_CSharp : MonoBehaviour {
         //Called when the player hits 'Set Data' to change the data string on their account. Switches UI to 'Loading...' and starts coroutine to set the players data string on the server
         loadingParent.gameObject.SetActive(true);
         loggedInParent.gameObject.SetActive(false);
-        StartCoroutine(SetData(LoggedIn_DataInputField.text));
+       // StartCoroutine(SetData(LoggedIn_DataInputField.text));
     }
     public void LoggedIn_LoadDataButtonPressed ()
     {

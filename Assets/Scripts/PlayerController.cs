@@ -18,7 +18,18 @@ public class PlayerController : MonoBehaviour {
 
     private void Update()
     {
-        if (PauseMenu.isActive) { return; } // diable input if the pause menu is up
+        if (PauseMenu.isActive) {
+            if (Cursor.lockState != CursorLockMode.None)
+            {
+                Cursor.lockState = CursorLockMode.None;
+            }
+            return;
+        } // diable input if the pause menu is up
+
+        if( Cursor.lockState != CursorLockMode.Locked)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         // Calculate player movement & rotation as a vector 3
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveZ = Input.GetAxisRaw("Vertical");
